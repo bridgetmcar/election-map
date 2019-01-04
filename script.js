@@ -113,8 +113,35 @@ var setStateResults = function (state)
 };
 
 
+
 jane.tallyVotes();
 flo.tallyVotes();
+
+if (jane.totalVotes > flo.totalVotes)
+{
+  winner=jane.name;
+}
+else if (flo.totalVotes==jane.totalVotes)
+  {
+    winner="draw";
+  }
+else
+  {
+    winner=flo.name;
+  };
+
+
+var countryTable = document.getElementById('countryResults');
+var row = countryTable.children[0].children[0];
+row.children[0].innerText = flo.name;
+row.children[1].innerText = flo.totalVotes;
+row.children[2].innerText = jane.name;
+row.children[3].innerText = jane.totalVotes;
+row.children[5].innerText = winner;
+
+
+setStateResults();
+
 
 // if (jane.totalVotes > flo.totalVotes)
 // {
